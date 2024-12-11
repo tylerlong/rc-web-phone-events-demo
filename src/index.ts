@@ -39,9 +39,13 @@ const main = async () => {
   // inbound call
   webPhone.on('inboundCall', (callSession) => {
     console.log('Inbound call');
+    callSession.once('answered', () => {
+      console.log('Inbould call answered');
+    });
     callSession.once('disposed', () => {
       console.log('Inbould call disposed');
     });
+    callSession.answer();
   });
 
   // outbound call
