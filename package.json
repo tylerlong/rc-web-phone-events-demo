@@ -1,0 +1,29 @@
+{
+  "name": "untitled-app",
+  "version": "0.1.0",
+  "private": true,
+  "license": "UNLICENSED",
+  "scripts": {
+    "lint": "tsc --jsx react --skipLibCheck --noEmit --target ESNext --moduleResolution NodeNext --module NodeNext ./src/*.ts && eslint . --fix && prettier --write . && sort-package-json",
+    "release": "rm -rf .parcel-cache && parcel build src/index.html --dist-dir docs --public-url ./ && gh-pages -d docs && rm -rf docs",
+    "serve": "rm -rf .parcel-cache temp && parcel src/index.html --dist-dir temp"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "@types/react-dom": "^19.0.2",
+    "antd": "^5.22.4",
+    "dotenv-override-true": "^6.2.2",
+    "eslint-config-tyler": "^0.2.2",
+    "gh-pages": "^6.2.0",
+    "manate": "^2.0.0-beta.3",
+    "parcel": "^2.13.2",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "sort-package-json": "^2.12.0",
+    "tsx": "^4.19.2",
+    "ttpt": "^0.13.0",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8",
+    "yarn-upgrade-all": "^0.7.4"
+  }
+}
