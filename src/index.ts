@@ -6,8 +6,9 @@ import { SipInfo } from 'ringcentral-web-phone/types';
 
 window.Buffer = Buffer; // polyfill for browser
 
-const RingCentral = _RingCentral.default || _RingCentral;
-const WebPhone = _WebPhone.default || _WebPhone;
+const RingCentral = (_RingCentral.default ||
+  _RingCentral) as typeof _RingCentral;
+const WebPhone = (_WebPhone.default || _WebPhone) as typeof _WebPhone;
 
 const rc = new RingCentral({
   server: process.env.RINGCENTRAL_SERVER_URL,
@@ -29,7 +30,7 @@ const main = async () => {
   const sipInfo = r.sipInfo![0] as SipInfo;
   await rc.revoke(); // Web Phone SDK doesn't need a long-living Restful API access token, you MAY logout
 
-  const webPhone = new WebPhone({ sipInfo });
+  const webPhone = new WebPhone({ sipInfo, debug: true });
   await webPhone.start();
 
   // inbound call
@@ -46,7 +47,7 @@ const main = async () => {
   button.addEventListener('click', async () => {
     button.disabled = true;
     try {
-      const callSession = await webPhone.call(process.env.RINGCENTRAL_CALLEE);
+      const callSession = await webPhone.call(process.env.RINGCENTRAL_CALLEE!);
       callSession.on('disposed', () => {
         console.log('Outbound call disposed');
         button.disabled = false;
