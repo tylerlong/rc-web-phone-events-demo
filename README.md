@@ -12,6 +12,7 @@ RINGCENTRAL_SERVER_URL=https://platform.ringcentral.com
 RINGCENTRAL_CLIENT_ID=
 RINGCENTRAL_CLIENT_SECRET=
 RINGCENTRAL_JWT_TOKEN=
+RINGCENTRAL_CALLEE=
 ```
 
 Install [bun](https://bun.sh/) if you haven't done so.
