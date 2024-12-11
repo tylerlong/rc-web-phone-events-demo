@@ -52,7 +52,7 @@ const main = async () => {
     try {
       console.log('Making outbound call....');
       const callSession = await webPhone.call(process.env.RINGCENTRAL_CALLEE!);
-      callSession.on('disposed', () => {
+      callSession.once('disposed', () => {
         console.log('Outbound call disposed');
         button.disabled = false;
       });
