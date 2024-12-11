@@ -25,8 +25,8 @@ bun serve public
 
 Go to http://localhost:3000 to test.
 
-Make a call to then Web Phone and hang it up.
+Make a inbound call to then Web Phone and hang it up.
+
+Make an outbound call and hang it up.
 
 Watch the browser console.
-
-Please note that, this demo has no GUI. You will see a blank page.
