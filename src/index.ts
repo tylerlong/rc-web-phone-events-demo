@@ -17,6 +17,9 @@ const rc = new RingCentral({
 });
 
 const main = async () => {
+  // ask for microphone/speaker permission
+  await navigator.mediaDevices.getUserMedia({ audio: true, video: false });
+
   await rc.authorize({
     jwt: process.env.RINGCENTRAL_JWT_TOKEN!,
   });
@@ -30,7 +33,7 @@ const main = async () => {
   const sipInfo = r.sipInfo![0] as SipInfo;
   await rc.revoke(); // Web Phone SDK doesn't need a long-living Restful API access token, you MAY logout
 
-  const webPhone = new WebPhone({ sipInfo, debug: true });
+  const webPhone = new WebPhone({ sipInfo, debug: false });
   await webPhone.start();
 
   // inbound call
@@ -47,6 +50,7 @@ const main = async () => {
   button.addEventListener('click', async () => {
     button.disabled = true;
     try {
+      console.log('Making outbound call....');
       const callSession = await webPhone.call(process.env.RINGCENTRAL_CALLEE!);
       callSession.on('disposed', () => {
         console.log('Outbound call disposed');
