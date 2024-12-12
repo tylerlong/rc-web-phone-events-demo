@@ -1,14 +1,10 @@
 import { Buffer } from 'buffer';
 
-import RingCentral from '@rc-ex/core';
-import WebPhone from 'ringcentral-web-phone';
+import RingCentral from '@rc-ex/core/src/index';
+import WebPhone from 'ringcentral-web-phone/src/index';
 import { SipInfo } from 'ringcentral-web-phone/types';
 
 window.Buffer = Buffer; // polyfill for browser
-
-// const RingCentral = (_RingCentral.default ||
-//   _RingCentral) as typeof _RingCentral;
-// const WebPhone = (_WebPhone.default || _WebPhone) as typeof _WebPhone;
 
 const rc = new RingCentral({
   server: process.env.RINGCENTRAL_SERVER_URL,
