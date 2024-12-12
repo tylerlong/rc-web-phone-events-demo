@@ -17,7 +17,7 @@
     "events": "^3.3.0",
     "gh-pages": "^6.2.0",
     "manate": "^2.0.0-beta.3",
-    "packle": "^0.2.3",
+    "packle": "^0.2.4",
     "parcel": "^2.13.2",
     "process": "^0.11.10",
     "react": "^19.0.0",
@@ -34,7 +34,7 @@
   },
   "dependencies": {
     "@rc-ex/core": "^1.4.2",
-    "ringcentral-web-phone": "^2.0.3",
+    "ringcentral-web-phone": "^2.0.4",
     "wait-for-async": "^0.7.0"
   }
 }
